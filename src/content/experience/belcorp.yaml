@@ -1,0 +1,25 @@
+org: Belcorp
+start: 2024-01
+end: 2025-04
+location: Tocancipá, Colombia
+role:
+  en: Infrastructure Engineer
+  es: Ingeniero de infraestructura
+bullets:
+  en:
+    - Managed and secured Azure, Microsoft 365, Entra ID and Intune for more than 2,500 users, sustaining 99.9% service availability for mission-critical operations.
+    - Led a 30-person support organization — 10 onsite engineers and 20 help-desk agents — cutting average resolution time (MTTR) by 15% and reaching 92% user satisfaction.
+    - Negotiated and managed service delivery with more than five external IT providers, securing a 10% saving on annual IT procurement.
+    - Reported SLA and OLA metrics and KPIs to executive leadership.
+  es:
+    - Gestioné y aseguré Azure, Microsoft 365, Entra ID e Intune para más de 2.500 usuarios, sosteniendo una disponibilidad del 99,9 % en operaciones críticas.
+    - Lideré una organización de soporte de 30 personas —10 ingenieros en sitio y 20 agentes de mesa de ayuda—, reduciendo el tiempo medio de resolución (MTTR) en un 15 % y alcanzando un 92 % de satisfacción de los usuarios.
+    - Negocié y gestioné la prestación de servicios con más de cinco proveedores externos de TI, logrando un ahorro del 10 % en las compras anuales de TI.
+    - Reporté métricas y KPI de SLA y OLA a la dirección ejecutiva.
+tools: [Azure, Microsoft 365, Entra ID, Intune]
+metrics:
+  - { label: { en: Users, es: Usuarios }, value: { en: "2,500+", es: "2.500+" } }
+  - { label: { en: Availability, es: Disponibilidad }, value: { en: "99.9%", es: "99,9 %" } }
+  - { label: { en: MTTR, es: MTTR }, value: { en: "−15%", es: "−15 %" } }
+  - { label: { en: Satisfaction, es: Satisfacción }, value: { en: "92%", es: "92 %" } }
+featured: true

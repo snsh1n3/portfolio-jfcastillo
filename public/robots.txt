@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jfcastillo.chusquisimas.com/sitemap-index.xml

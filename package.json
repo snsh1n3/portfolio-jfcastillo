@@ -1,0 +1,26 @@
+{
+  "name": "portfolio-jfcastillo",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Personal CV and portfolio for Juan Felipe Castillo Collazos — jfcastillo.chusquisimas.com",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "check": "astro check",
+    "build": "astro check && astro build && node scripts/verify-dist.mjs",
+    "preview": "wrangler dev",
+    "deploy": "npm run build && wrangler deploy"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "3.7.4",
+    "astro": "7.4.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.11",
+    "typescript": "6.0.3",
+    "wrangler": "4.151.3"
+  }
+}

@@ -1,0 +1,2 @@
+# Static redirects. Format: /from /to [status]
+# A bare /es (no trailing slash) is already handled by html_handling.

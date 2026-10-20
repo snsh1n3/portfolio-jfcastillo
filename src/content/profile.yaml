@@ -1,0 +1,28 @@
+name: Juan Felipe Castillo Collazos
+jobTitle:
+  en: Identity & Access Management Engineer
+  es: Ingeniero de gestión de identidades y accesos
+metaDescription:
+  en: IAM and infrastructure engineer. Microsoft Entra ID, Conditional Access, Zero Trust and cloud security for organizations of up to 2,500 users.
+  es: Ingeniero IAM e infraestructura. Microsoft Entra ID, Conditional Access, Zero Trust y seguridad en la nube para organizaciones de hasta 2.500 usuarios.
+intro:
+  en: "More than five years administering Microsoft Entra ID, Active Directory and Microsoft 365 for organizations of up to 2,500 users — Conditional Access, MFA, SSO and Zero Trust access, designed with Information Security. Lately the perimeter too: OPNsense, Wazuh, Zabbix and VMware, held together with Python and PowerShell."
+  es: "Más de cinco años administrando Microsoft Entra ID, Active Directory y Microsoft 365 en organizaciones de hasta 2.500 usuarios, con Conditional Access, MFA, SSO y acceso Zero Trust diseñados junto a Seguridad de la Información. Últimamente, también el perímetro, con OPNsense, Wazuh, Zabbix y VMware, unidos con Python y PowerShell."
+location:
+  city: Bogotá
+  countryCode: CO
+  timezone: America/Bogota
+email: jfcastilloc.95@gmail.com
+linkedin: https://www.linkedin.com/in/juan-felipe-castillo-collazos
+cv: /cv/juan-castillo-cv.pdf
+knowsAbout:
+  - Identity and Access Management
+  - Microsoft Entra ID
+  - Conditional Access
+  - Zero Trust Network Access
+  - Active Directory
+  - Microsoft 365
+  - Cloud security
+  - VMware vSphere
+  - Wazuh
+  - OPNsense

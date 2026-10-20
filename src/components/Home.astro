@@ -1,0 +1,39 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+export interface Props {
+  locale: 'en' | 'es';
+}
+const { locale } = Astro.props;
+
+const profile = (await getEntry('profile', 'profile'))!.data;
+const roles = (await getCollection('experience')).sort((a, b) => b.data.start.localeCompare(a.data.start));
+
+// Email is emitted as numeric character references so it is not a plain-text string in the HTML.
+const encode = (s: string) => [...s].map((c) => `&#${c.codePointAt(0)};`).join('');
+const emailEncoded = encode(profile.email);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: profile.name,
+  jobTitle: profile.jobTitle[locale],
+  url: new URL(locale === 'en' ? '/' : '/es/', Astro.site).href,
+  sameAs: [profile.linkedin],
+  knowsAbout: profile.knowsAbout,
+  address: { '@type': 'PostalAddress', addressLocality: profile.location.city, addressCountry: profile.location.countryCode },
+};
+---
+
+<Base locale={locale} title={`${profile.name} — ${profile.jobTitle[locale]}`} description={profile.metaDescription[locale]} path="/" jsonLd={jsonLd}>
+  <main id="main" style="padding: var(--gutter);">
+    <h1 style="font-size: var(--text-display); line-height: var(--leading-display); margin: 0 0 var(--gutter);">{profile.name}</h1>
+    <p class="meta">{profile.jobTitle[locale]} · {profile.location.city}, {profile.location.countryCode}</p>
+    <p>{profile.intro[locale]}</p>
+    <ul class="meta">
+      {roles.map((r) => <li>{r.data.org} — {r.data.role[locale]} ({r.data.start}–{r.data.end ?? (locale === 'en' ? 'present' : 'actual')})</li>)}
+    </ul>
+    <p class="meta"><a href={profile.linkedin} rel="me noopener">LinkedIn</a> · <a href={profile.cv}>CV (PDF)</a> · <span set:html={emailEncoded} /></p>
+  </main>
+</Base>

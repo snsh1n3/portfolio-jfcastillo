@@ -1,0 +1,34 @@
+/* Design tokens — variant A "Monograph" (editorial, after the Simon Liesinger reference). */
+:root {
+  /* colour */
+  --bone: #f2f2f2;
+  --graphite: #181818;
+  --ink: #000000;
+  --ash: #6e6e6e; /* 4.57:1 on --bone: AA for text of 13px and up only */
+  --vermillion: #fc523b; /* arrows and the hero illustration only; never text, never fills */
+
+  /* type */
+  --font-serif: 'EB Garamond', Garamond, 'Times New Roman', serif;
+  --font-sans: Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --text-meta: 13px;
+  --text-body: clamp(19px, 1.75vw, 25px);
+  --text-title: clamp(30px, 2.6vw, 36px);
+  --text-display: clamp(46px, 6.4vw, 96px);
+  --leading-display: 0.95;
+  --tracking-body: 0.016em;
+
+  /* spacing: base unit 6px */
+  --unit: 6px;
+  --gutter: 30px;
+  --band-gap: clamp(80px, 10vw, 160px);
+
+  /* structure: lines only — no radius, no shadow */
+  --rule: 1px solid var(--graphite);
+  --radius: 0;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --gutter: 20px;
+  }
+}

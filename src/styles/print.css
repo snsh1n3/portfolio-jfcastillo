@@ -1,0 +1,23 @@
+/* The page doubles as a printable CV: Ctrl+P → Save as PDF. */
+@media print {
+  @page {
+    margin: 16mm;
+  }
+  html,
+  body {
+    background: #fff;
+    color: #000;
+  }
+  .skip,
+  [data-print='hide'] {
+    display: none !important;
+  }
+  details > :not(summary) {
+    display: block !important;
+  }
+  a[href^='http']::after {
+    content: ' (' attr(href) ')';
+    font-family: var(--font-sans);
+    font-size: 10px;
+  }
+}
