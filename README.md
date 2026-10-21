@@ -12,6 +12,10 @@ Personal CV / portfolio of Juan Felipe Castillo Collazos. Static site (Astro) se
 | `npm run preview` | Serve `dist/` locally with Wrangler (applies `_headers`) |
 | `npm run deploy` | Build and `wrangler deploy` (run by the owner, never from CI by default) |
 
+## License
+
+All rights reserved (see `LICENSE`). The repo is public for transparency only; fonts keep their OFL license.
+
 Requires Node ≥ 22.12.
 
 ## Structure

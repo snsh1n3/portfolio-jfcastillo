@@ -1,0 +1,10 @@
+Copyright (c) 2026 Juan Felipe Castillo Collazos. All rights reserved.
+
+This repository is public for transparency only. No license is granted to use,
+copy, modify, merge, publish, distribute, sublicense, or sell any part of the
+source code, content, text, design, or other materials in it, in whole or in
+part, without prior written permission from the copyright holder.
+
+Third-party fonts in public/fonts (EB Garamond, Inter) remain under their own
+SIL Open Font License 1.1; see the LICENSE-*-OFL.txt files in that directory.
+Third-party dependencies remain under their respective licenses.
