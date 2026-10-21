@@ -70,6 +70,9 @@ PS> git push
 
 ## 6. Iniciar sesión en Cloudflare
 
+Si `git commit` pide identidad: `git config --global user.name "Tu nombre"` y `git config --global user.email "tu@correo"`.
+El aviso `allow-scripts` de `npm ci` es informativo; el build y el despliegue funcionan igual.
+
 ```powershell
 PS> npx wrangler login
 PS> npx wrangler whoami
@@ -127,7 +130,8 @@ PS> git add -A; git commit -m "Update content"; git push
 
 ## 11. Marcha atrás
 
-- Volver a la versión anterior del Worker: `npx wrangler rollback`.
+- Volver a la versión anterior del Worker: `npx wrangler rollback`. Solo funciona cuando ya hay al menos dos
+  versiones desplegadas; con la primera da `Could not find stable Worker Version to rollback to`, que es normal.
 - Retirar el sitio sin tocar nada más: panel Workers & Pages → `jfcastillo-portfolio` → Settings →
   Domains & Routes → quitar `jfcastillo.chusquisimas.com`. No afecta a `chusquisimas-v2`.
 
