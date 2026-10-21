@@ -5,7 +5,7 @@ const errors = [];
 const need = (p) => { if (!existsSync(p)) errors.push(`missing: ${p}`); };
 const read = (p) => (existsSync(p) ? readFileSync(p, 'utf8') : '');
 
-['dist/_headers', 'dist/index.html', 'dist/es/index.html', 'dist/404.html', 'dist/sitemap-index.xml', 'dist/robots.txt'].forEach(need);
+['dist/_headers', 'dist/index.html', 'dist/es/index.html', 'dist/404.html', 'dist/sitemap-index.xml', 'dist/robots.txt', 'dist/og/og-en.png', 'dist/og/og-es.png', 'dist/cv/juan-castillo-cv.pdf'].forEach(need);
 
 for (const [file, lang] of [['dist/index.html', 'en'], ['dist/es/index.html', 'es']]) {
   const html = read(file);
@@ -13,6 +13,7 @@ for (const [file, lang] of [['dist/index.html', 'en'], ['dist/es/index.html', 'e
   for (const h of ['en', 'es', 'x-default']) {
     if (!html.includes(`hreflang="${h}"`)) errors.push(`${file}: missing hreflang=${h}`);
   }
+  if (!html.includes(`/og/og-${lang}.png`)) errors.push(`${file}: missing og:image for ${lang}`);
   if (/href="tel:/i.test(html)) errors.push(`${file}: contains a tel: link (phone must not be published)`);
   if (/jfcastilloc\.95@gmail\.com/.test(html)) errors.push(`${file}: plain-text email found (must be obfuscated)`);
   if (/mailto:/i.test(html)) errors.push(`${file}: static mailto: link (address must be assembled client-side)`);

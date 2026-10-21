@@ -51,7 +51,7 @@ const docHrefs = [profile.cv, profile.linkedin, '#contact'];
 const navIds = ['profile', 'experience', 'work', 'contact'];
 ---
 
-<Base locale={l} title={`${profile.name} — ${profile.jobTitle[l]}`} description={profile.metaDescription[l]} path="/" jsonLd={jsonLd}>
+<Base locale={l} title={`${profile.name} — ${profile.jobTitle[l]}`} description={profile.metaDescription[l]} path="/" jsonLd={jsonLd} ogImage={`/og/og-${l}.png`} ogAlt={`${profile.name} — ${profile.jobTitle[l]}`}>
   <a class="skip meta" href="#main">{t.skip}</a>
 
   <header class="cells c4 hd meta">

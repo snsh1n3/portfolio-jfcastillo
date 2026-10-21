@@ -10,15 +10,19 @@ export interface Props {
   description: string;
   /** Path of the page in the default locale, e.g. "/" — used for hreflang pairs. */
   path: string;
+  /** Path under /public of the 1200x630 share image. */
+  ogImage?: string;
+  ogAlt?: string;
   noindex?: boolean;
   jsonLd?: Record<string, unknown>;
 }
 
-const { locale, title, description, path, noindex = false, jsonLd } = Astro.props;
+const { locale, title, description, path, noindex = false, jsonLd, ogImage, ogAlt } = Astro.props;
 
 const site = Astro.site!.origin;
 const urlFor = (l: 'en' | 'es') => new URL(l === 'en' ? path : `/es${path}`, site).href;
 const canonical = urlFor(locale);
+const ogUrl = ogImage ? new URL(ogImage, site).href : undefined;
 // Escape "<" so a string can never close the script tag.
 const jsonLdText = jsonLd ? JSON.stringify(jsonLd).replace(/</g, '\\u003c') : undefined;
 ---
@@ -46,7 +50,20 @@ const jsonLdText = jsonLd ? JSON.stringify(jsonLd).replace(/</g, '\\u003c') : un
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content={locale === 'en' ? 'en_US' : 'es_CO'} />
-    <meta name="twitter:card" content="summary" />
+    {
+      ogUrl ? (
+        <>
+          <meta property="og:image" content={ogUrl} />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+          {ogAlt && <meta property="og:image:alt" content={ogAlt} />}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:image" content={ogUrl} />
+        </>
+      ) : (
+        <meta name="twitter:card" content="summary" />
+      )
+    }
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preload" href="/fonts/eb-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
     {jsonLdText && <script type="application/ld+json" set:html={jsonLdText} />}
