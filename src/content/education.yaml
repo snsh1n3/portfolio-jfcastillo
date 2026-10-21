@@ -1,0 +1,36 @@
+- id: edu-1
+  order: 1
+  period:
+    en: In progress
+    es: En curso
+  title:
+    en: 'Microsoft Certified: Identity and Access Administrator Associate (SC-300)'
+    es: 'Microsoft Certified: Identity and Access Administrator Associate (SC-300)'
+  institution: Microsoft
+  kind:
+    en: Certification
+    es: Certificación
+- id: edu-2
+  order: 2
+  period:
+    en: In progress
+    es: En curso
+  title:
+    en: Software Engineering
+    es: Ingeniería de Software
+  institution: Corporación Universitaria Iberoamericana, Bogotá
+  kind:
+    en: Degree
+    es: Pregrado
+- id: edu-3
+  order: 3
+  period:
+    en: '2021'
+    es: '2021'
+  title:
+    en: Technology Degree, Mechatronics (Mecydice)
+    es: Tecnólogo en Mecydice
+  institution: SENA, Bogotá
+  kind:
+    en: Technology degree
+    es: Tecnólogo

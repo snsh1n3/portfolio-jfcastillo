@@ -1,0 +1,112 @@
+- id: identity-access
+  order: 1
+  title:
+    en: Identity & Access
+    es: Identidad y acceso
+  items:
+    en:
+    - Microsoft Entra ID
+    - Conditional Access
+    - MFA and SSO
+    - Active Directory, on-prem and virtualized
+    - GPO and RBAC
+    - Identity governance and access audits
+    es:
+    - Microsoft Entra ID
+    - Conditional Access
+    - MFA y SSO
+    - Active Directory, local y virtualizado
+    - GPO y RBAC
+    - Gobierno de identidades y auditorías de acceso
+  orgs: Belcorp · Visa · Samana Group · CESPlus Cinema
+- id: security-operations
+  order: 2
+  title:
+    en: Security Operations
+    es: Operaciones de seguridad
+  items:
+    en:
+    - Wazuh SIEM
+    - OPNsense firewalls and segmentation
+    - 'VPN: site-to-site, client-to-site, ZTNA'
+    - 'MDM and EDR: Intune, Google Endpoint'
+    - 'Email security: SPF, DKIM, DMARC'
+    es:
+    - Wazuh SIEM
+    - Firewalls y segmentación con OPNsense
+    - 'VPN: sitio a sitio, cliente a sitio, ZTNA'
+    - 'MDM y EDR: Intune, Google Endpoint'
+    - 'Seguridad del correo: SPF, DKIM, DMARC'
+  orgs: LinkUp Talents · CESPlus Cinema · Visa
+- id: cloud-virtualization-monitoring
+  order: 3
+  title:
+    en: Cloud, Virtualization & Monitoring
+    es: Nube, virtualización y monitoreo
+  items:
+    en:
+    - Microsoft 365
+    - Google Workspace
+    - Azure and Azure REST APIs
+    - VMware vSphere / ESXi
+    - Zabbix
+    es:
+    - Microsoft 365
+    - Google Workspace
+    - Azure y API REST de Azure
+    - VMware vSphere / ESXi
+    - Zabbix
+  orgs: LinkUp Talents · Belcorp · 1980TIC Cloud
+- id: automation-scripting
+  order: 4
+  title:
+    en: Automation & Scripting
+    es: Automatización y scripting
+  items:
+    en:
+    - Python
+    - PowerShell
+    - Google Apps Script
+    - Linux command line
+    - KQL, in progress
+    es:
+    - Python
+    - PowerShell
+    - Google Apps Script
+    - Línea de comandos de Linux
+    - KQL, en curso
+  orgs: CESPlus Cinema · LinkUp Talents
+- id: service-management
+  order: 5
+  title:
+    en: Service Management
+    es: Gestión de servicios
+  items:
+    en:
+    - ServiceNow · Freshservice · Jira
+    - Zoho · Slack
+    - SLA and OLA monitoring
+    - ITIL practices
+    - Vendor and MSP negotiation
+    es:
+    - ServiceNow · Freshservice · Jira
+    - Zoho · Slack
+    - Monitoreo de SLA y OLA
+    - Prácticas ITIL
+    - Negociación con proveedores y MSP
+  orgs: Belcorp · CESPlus Cinema · 1980TIC Cloud
+- id: end-user-computing
+  order: 6
+  title:
+    en: End-User Computing
+    es: Puesto de trabajo del usuario
+  items:
+    en:
+    - 'VDI: Citrix, VMware'
+    - Windows Server 2012 / 2019
+    - IT asset lifecycle and logistics
+    es:
+    - 'VDI: Citrix, VMware'
+    - Windows Server 2012 / 2019
+    - Ciclo de vida y logística de activos de TI
+  orgs: Visa · CESPlus Cinema · MarketMix

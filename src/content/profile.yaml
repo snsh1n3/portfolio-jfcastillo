@@ -6,9 +6,10 @@ metaDescription:
   en: IAM and infrastructure engineer. Microsoft Entra ID, Conditional Access, Zero Trust and cloud security for organizations of up to 2,500 users.
   es: Ingeniero IAM e infraestructura. Microsoft Entra ID, Conditional Access, Zero Trust y seguridad en la nube para organizaciones de hasta 2.500 usuarios.
 intro:
-  en: "More than five years administering Microsoft Entra ID, Active Directory and Microsoft 365 for organizations of up to 2,500 users — Conditional Access, MFA, SSO and Zero Trust access, designed with Information Security. Lately the perimeter too: OPNsense, Wazuh, Zabbix and VMware, held together with Python and PowerShell."
-  es: "Más de cinco años administrando Microsoft Entra ID, Active Directory y Microsoft 365 en organizaciones de hasta 2.500 usuarios, con Conditional Access, MFA, SSO y acceso Zero Trust diseñados junto a Seguridad de la Información. Últimamente, también el perímetro, con OPNsense, Wazuh, Zabbix y VMware, unidos con Python y PowerShell."
+  en: 'More than five years administering Microsoft Entra ID, Active Directory and Microsoft 365 for organizations of up to 2,500 users — Conditional Access, MFA, SSO and Zero Trust access, designed with Information Security. Lately the perimeter too: OPNsense, Wazuh, Zabbix and VMware, held together with Python and PowerShell.'
+  es: 'Más de cinco años administrando Microsoft Entra ID, Active Directory y Microsoft 365 en organizaciones de hasta 2.500 usuarios: Conditional Access, MFA, SSO y acceso Zero Trust, diseñados junto a Seguridad de la Información. Últimamente, también el perímetro: OPNsense, Wazuh, Zabbix y VMware, unidos con Python y PowerShell.'
 location:
+  label: Bogotá, Colombia · UTC−5
   city: Bogotá
   countryCode: CO
   timezone: America/Bogota
@@ -16,13 +17,68 @@ email: jfcastilloc.95@gmail.com
 linkedin: https://www.linkedin.com/in/juan-felipe-castillo-collazos
 cv: /cv/juan-castillo-cv.pdf
 knowsAbout:
-  - Identity and Access Management
-  - Microsoft Entra ID
-  - Conditional Access
-  - Zero Trust Network Access
-  - Active Directory
-  - Microsoft 365
-  - Cloud security
-  - VMware vSphere
-  - Wazuh
-  - OPNsense
+- Identity and Access Management
+- Microsoft Entra ID
+- Conditional Access
+- Zero Trust Network Access
+- Active Directory
+- Microsoft 365
+- Cloud security
+- VMware vSphere
+- Wazuh
+- OPNsense
+nameLines:
+- Juan Felipe
+- Castillo Collazos
+headerRole:
+  en: IAM & Infrastructure Engineer
+  es: Ingeniero IAM e Infraestructura
+tagline:
+  en: Identity & Access Management · Microsoft Entra ID · Cloud Security
+  es: Gestión de identidades y accesos · Microsoft Entra ID · Seguridad en la nube
+about:
+  en:
+  - 'I work where people meet systems: deciding who gets access to what, under which conditions, and being able to prove it later in an audit. Most of that work has lived inside Microsoft Entra ID, Active Directory and Microsoft 365, for organizations of up to 2,500 users.'
+  - The other half is keeping the ground under that identity layer steady — firewalls, VPNs, directories, hypervisors and monitoring — and leaving behind documentation the next engineer can actually follow.
+  - I am preparing the Microsoft SC-300 certification to formalize that focus on identity security.
+  es:
+  - 'Trabajo donde las personas se encuentran con los sistemas: decidir quién accede a qué, bajo qué condiciones, y poder demostrarlo después en una auditoría. Casi todo ese trabajo ha ocurrido dentro de Microsoft Entra ID, Active Directory y Microsoft 365, en organizaciones de hasta 2.500 usuarios.'
+  - La otra mitad consiste en mantener firme el terreno bajo esa capa de identidad —firewalls, VPN, directorios, hipervisores y monitoreo— y dejar documentación que el siguiente ingeniero pueda seguir de verdad.
+  - Me estoy preparando para la certificación Microsoft SC-300, para formalizar este enfoque en seguridad de identidades.
+stats:
+- value:
+    en: 2,500+
+    es: 2.500+
+  label:
+    en: users on managed Entra ID and Intune
+    es: usuarios gestionados en Entra ID e Intune
+  source:
+    en: Belcorp, 2024–2025
+    es: Belcorp, 2024–2025
+- value:
+    en: 99.9%
+    es: 99,9 %
+  label:
+    en: service availability for mission-critical operations
+    es: de disponibilidad en operaciones críticas
+  source:
+    en: Belcorp, 2024–2025
+    es: Belcorp, 2024–2025
+- value:
+    en: '30'
+    es: '30'
+  label:
+    en: engineers and help-desk agents led; MTTR down 15%
+    es: ingenieros y agentes de mesa de ayuda liderados; MTTR −15 %
+  source:
+    en: Belcorp, 2024–2025
+    es: Belcorp, 2024–2025
+- value:
+    en: −50%
+    es: −50 %
+  label:
+    en: resolution time across 1,500+ client requests
+    es: en tiempo de resolución en más de 1.500 solicitudes de clientes
+  source:
+    en: 1980TIC Cloud, 2021–2023
+    es: 1980TIC Cloud, 2021–2023

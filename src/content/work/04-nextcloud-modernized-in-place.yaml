@@ -1,0 +1,24 @@
+order: 4
+title:
+  en: Nextcloud, modernized in place
+  es: Nextcloud, modernizado en sitio
+client: Plásticos Sierra del Oro
+year: 2026
+area:
+  en: Infrastructure
+  es: Infraestructura
+context:
+  en: A self-hosted Nextcloud 23 on Debian, PHP 7.4 and MariaDB 10.5 holding about 2.6 TB of company files — several major versions behind and out of support.
+  es: 'Un Nextcloud 23 autoalojado sobre Debian, PHP 7.4 y MariaDB 10.5, con unos 2,6 TB de archivos de la empresa: varias versiones mayores atrás y fuera de soporte.'
+approach:
+  en: Consecutive major upgrades instead of one jump, each gated by backups and snapshots, compatibility checks and validation before any destructive step, carrying Redis and ONLYOFFICE along.
+  es: Actualizaciones mayores consecutivas en lugar de un solo salto, cada una condicionada a respaldos y snapshots, verificaciones de compatibilidad y validación antes de cualquier paso destructivo, llevando consigo Redis y ONLYOFFICE.
+detailLabel:
+  en: Progress
+  es: Avance
+status:
+  en: In progress, October 2026
+  es: En curso, octubre de 2026
+stack:
+  en: 'Nextcloud 23 → 26 · Debian 12 userland · PHP 7.4 → 8.2 · MariaDB 10.5 → 10.11 · ONLYOFFICE 9.4 — target: Nextcloud 35 on Debian 13'
+  es: 'Nextcloud 23 → 26 · espacio de usuario Debian 12 · PHP 7.4 → 8.2 · MariaDB 10.5 → 10.11 · ONLYOFFICE 9.4 — objetivo: Nextcloud 35 sobre Debian 13'

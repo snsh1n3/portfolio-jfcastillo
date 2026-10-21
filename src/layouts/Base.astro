@@ -1,6 +1,7 @@
 ---
 import '../styles/tokens.css';
 import '../styles/base.css';
+import '../styles/site.css';
 import '../styles/print.css';
 
 export interface Props {
@@ -51,7 +52,9 @@ const jsonLdText = jsonLd ? JSON.stringify(jsonLd).replace(/</g, '\\u003c') : un
     {jsonLdText && <script type="application/ld+json" set:html={jsonLdText} />}
   </head>
   <body>
-    <a class="skip meta" href="#main">{locale === 'en' ? 'Skip to content' : 'Saltar al contenido'}</a>
     <slot />
+    <script>
+      import '../scripts/site.ts';
+    </script>
   </body>
 </html>

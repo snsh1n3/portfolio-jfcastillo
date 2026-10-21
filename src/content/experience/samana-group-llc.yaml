@@ -1,0 +1,15 @@
+order: 4
+org: Samana Group LLC
+start: 2025-04
+end: 2025-05
+location: Bogotá, Colombia
+role:
+  en: IAM Support Engineer L2
+  es: Ingeniero de soporte IAM N2
+bullets:
+  en:
+  - Level 2 identity and access support across Microsoft 365, Active Directory, PeopleSoft (myHR, Finance), OneView, MAPS, NVS and Fexco.
+  - Wrote the resolution-process documentation for identity and access tickets on every supported platform.
+  es:
+  - Soporte de identidad y accesos de nivel 2 en Microsoft 365, Active Directory, PeopleSoft (myHR, Finance), OneView, MAPS, NVS y Fexco.
+  - Redacté la documentación del proceso de resolución de tickets de identidad y acceso para cada plataforma soportada.

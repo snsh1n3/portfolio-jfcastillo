@@ -1,0 +1,53 @@
+---
+interface Props { labels: { identity: string; workloads: string; edge: string } }
+const { labels } = Astro.props;
+// Decorative isometric stack (identity / workloads / edge). Vermillion line art, aria-hidden.
+---
+<svg class="ill-d" viewBox="0 0 520 520" aria-hidden="true" focusable="false" fill="none" stroke="#fc523b" stroke-width="1">
+<g vector-effect="non-scaling-stroke">
+<path d="M10 20 H30 M20 10 V30 M490 20 H510 M500 10 V30 M10 500 H30 M20 490 V510 M490 500 H510 M500 490 V510"></path>
+<path d="M66.1 120 L170 60 L343.2 160 L239.3 220 Z"></path>
+<path d="M66.1 120 V138 L239.3 238 L343.2 178 V160 M239.3 220 V238"></path>
+<path d="M180.4 84 L301.6 154 L228.9 196 L107.7 126 Z" stroke-dasharray="2 4"></path>
+<path d="M66.1 210 L170 150 L343.2 250 L239.3 310 Z"></path>
+<path d="M66.1 210 V228 L239.3 328 L343.2 268 V250 M239.3 310 V328"></path>
+<path d="M66.1 300 L170 240 L343.2 340 L239.3 400 Z"></path>
+<path d="M66.1 300 V318 L239.3 418 L343.2 358 V340 M239.3 400 V418"></path>
+<path d="M66.1 138 V210 M66.1 228 V300 M239.3 238 V310 M239.3 328 V400 M343.2 178 V250 M343.2 268 V340" stroke-dasharray="3 4"></path>
+<circle cx="86.9" cy="141" r="2.4"></circle><circle cx="100.7" cy="149" r="2.4"></circle><circle cx="114.6" cy="157" r="2.4"></circle>
+<circle cx="86.9" cy="231" r="2.4"></circle><circle cx="100.7" cy="239" r="2.4"></circle><circle cx="114.6" cy="247" r="2.4"></circle>
+<circle cx="86.9" cy="321" r="2.4"></circle><circle cx="100.7" cy="329" r="2.4"></circle><circle cx="114.6" cy="337" r="2.4"></circle>
+<path d="M343.2 169 H410 V120 H452 M343.2 259 H452 M343.2 349 H410 V400 H452"></path>
+<circle cx="343.2" cy="169" r="2"></circle><circle cx="343.2" cy="259" r="2"></circle><circle cx="343.2" cy="349" r="2"></circle>
+<circle cx="470" cy="120" r="18"></circle><circle cx="470" cy="120" r="6"></circle>
+<polygon points="488,259 479,274.6 461,274.6 452,259 461,243.4 479,243.4"></polygon><circle cx="470" cy="259" r="3"></circle>
+<polygon points="470,382 488,400 470,418 452,400"></polygon><polygon points="470,392 478,400 470,408 462,400"></polygon>
+<path d="M470 138 V243.4 M470 274.6 V382" stroke-dasharray="3 4"></path>
+<path d="M488 400 H512 M506 395 L512 400 L506 405"></path>
+<path d="M66.1 470 H343.2 M66.1 464 V476 M343.2 464 V476"></path>
+<path class="sig" d="M343.2 169 H410 V120 H452" stroke-width="2"></path>
+<path class="sig sig2" d="M343.2 259 H452" stroke-width="2"></path>
+<path class="sig sig3" d="M343.2 349 H410 V400 H452" stroke-width="2"></path>
+</g>
+<g fill="#6e6e6e" stroke="none" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" letter-spacing=".2">
+<text x="446" y="106" text-anchor="end">{labels.identity}</text>
+<text x="446" y="248" text-anchor="end">{labels.workloads}</text>
+<text x="446" y="389" text-anchor="end">{labels.edge}</text>
+</g>
+</svg>
+<svg class="ill-m" viewBox="0 0 340 210" aria-hidden="true" focusable="false" fill="none" stroke="#fc523b" stroke-width="1">
+<g vector-effect="non-scaling-stroke">
+<path d="M4 12 H20 M12 4 V20 M320 12 H336 M328 4 V20 M4 198 H20 M12 190 V206 M320 198 H336 M328 190 V206"></path>
+<path d="M32.1 75 L110 30 L248.6 110 L170.7 155 Z"></path>
+<path d="M32.1 75 V91 L170.7 171 L248.6 126 V110 M170.7 155 V171"></path>
+<circle cx="48.7" cy="92.6" r="2.2"></circle><circle cx="59.8" cy="99" r="2.2"></circle><circle cx="70.9" cy="105.4" r="2.2"></circle>
+<path d="M248.6 118 H280 V60 H296 M280 118 V160 H296"></path>
+<circle cx="310" cy="60" r="14"></circle><circle cx="310" cy="60" r="5"></circle>
+<polygon points="310,146 324,160 310,174 296,160"></polygon>
+<path class="sig" d="M248.6 118 H280 V60 H296" stroke-width="2"></path>
+</g>
+<g fill="#6e6e6e" stroke="none" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12">
+<text x="310" y="34" text-anchor="middle">{labels.identity}</text>
+<text x="310" y="196" text-anchor="middle">{labels.edge}</text>
+</g>
+</svg>

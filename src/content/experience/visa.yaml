@@ -1,0 +1,32 @@
+order: 3
+org: Visa
+start: 2025-06
+end: 2026-05
+location: Bogotá, Colombia
+role:
+  en: Systems Administrator
+  es: Administrador de sistemas
+bullets:
+  en:
+  - Administered VDI solutions end to end, including the policy and procedure design for enterprise deployment.
+  - Managed the Microsoft 365 hybrid deployment and its security policies; engineering escalation for Azure, Conditional Access and Intune.
+  - Partnered with the Information Security Office to validate deployments against corporate security requirements and to investigate security alerts.
+  - Documented policies, procedures and training plans for systems administration and operations teams.
+  es:
+  - Administré soluciones VDI de punta a punta, incluido el diseño de políticas y procedimientos para el despliegue empresarial.
+  - Gestioné el despliegue híbrido de Microsoft 365 y sus políticas de seguridad; escalamiento de ingeniería para Azure, Conditional Access e Intune.
+  - Trabajé con la Oficina de Seguridad de la Información para validar despliegues frente a los requisitos corporativos de seguridad e investigar alertas.
+  - Documenté políticas, procedimientos y planes de capacitación para los equipos de administración de sistemas y operaciones.
+tools:
+  en:
+  - VDI
+  - Microsoft 365
+  - Azure
+  - Conditional Access
+  - Intune
+  es:
+  - VDI
+  - Microsoft 365
+  - Azure
+  - Conditional Access
+  - Intune

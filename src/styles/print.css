@@ -15,7 +15,7 @@
   details > :not(summary) {
     display: block !important;
   }
-  a[href^='http']::after {
+  a[href^="http"]::after {
     content: ' (' attr(href) ')';
     font-family: var(--font-sans);
     font-size: 10px;

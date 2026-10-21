@@ -1,0 +1,41 @@
+order: 1
+org: CESPlus Cinema
+start: 2026-07
+location: Bogotá, Colombia
+role:
+  en: Systems Administrator
+  es: Administrador de sistemas
+bullets:
+  en:
+  - Administer corporate identity across Google Workspace, Zoho, Microsoft 365 and Slack, with SSO, MFA and periodic access audits.
+  - Secure domains, DNS and email routing with SPF, DKIM and DMARC.
+  - Design corporate VPN architectures — site-to-site, client-to-site and ZTNA — and enforce MDM policies in Intune and Google Endpoint for disk encryption, patching and EDR.
+  - Run the hardware lifecycle end to end, from procurement and imaging to security baselines, including cross-border LATAM shipping and customs.
+  - Build automations in Python, PowerShell and Google Apps Script, and roll out AI chatbots in Zoho SalesIQ and Slack to speed up ticket resolution.
+  - Lead help-desk support and SLA compliance across departments; negotiate vendor and MSP contracts.
+  es:
+  - Administro la identidad corporativa en Google Workspace, Zoho, Microsoft 365 y Slack, con SSO, MFA y auditorías periódicas de acceso.
+  - Protejo dominios, DNS y enrutamiento de correo con SPF, DKIM y DMARC.
+  - Diseño arquitecturas VPN corporativas —sitio a sitio, cliente a sitio y ZTNA— y aplico políticas MDM en Intune y Google Endpoint para cifrado de disco, parches y EDR.
+  - Gestiono el ciclo de vida del hardware de punta a punta, desde la compra y el aprovisionamiento hasta las líneas base de seguridad, incluidos envíos y aduanas entre países de LATAM.
+  - Construyo automatizaciones en Python, PowerShell y Google Apps Script, y despliego chatbots de IA en Zoho SalesIQ y Slack para acelerar la resolución de tickets.
+  - Lidero la mesa de ayuda y el cumplimiento de SLA entre áreas; negocio contratos con proveedores y MSP.
+tools:
+  en:
+  - Google Workspace
+  - Zoho
+  - Microsoft 365
+  - Slack
+  - Intune
+  - Google Endpoint
+  - Python
+  - Apps Script
+  es:
+  - Google Workspace
+  - Zoho
+  - Microsoft 365
+  - Slack
+  - Intune
+  - Google Endpoint
+  - Python
+  - Apps Script

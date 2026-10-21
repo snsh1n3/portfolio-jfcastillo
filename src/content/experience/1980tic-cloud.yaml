@@ -1,0 +1,18 @@
+order: 7
+org: 1980TIC Cloud
+start: 2021-03
+end: 2023-07
+location: Bogotá, Colombia
+role:
+  en: IT Leader / IT Support Specialist
+  es: Líder de TI / Especialista de soporte de TI
+bullets:
+  en:
+  - Administered Azure AD identity, security policies and Microsoft 365 and Exchange across a multi-client environment running on VMware ESXi, Proxmox, Linode and OVH.
+  - Oversaw more than 1,500 client support requests, cutting resolution time by 50% and reaching 86% customer satisfaction through new QA processes.
+  es:
+  - Administré la identidad de Azure AD, las políticas de seguridad, Microsoft 365 y Exchange en un entorno multicliente sobre VMware ESXi, Proxmox, Linode y OVH.
+  - Supervisé más de 1.500 solicitudes de soporte de clientes, reduciendo el tiempo de resolución en un 50 % y alcanzando un 86 % de satisfacción mediante nuevos procesos de control de calidad.
+results:
+  en: 1,500+ requests · resolution time −50% · 86% satisfaction
+  es: 1.500+ solicitudes · tiempo de resolución −50 % · 86 % de satisfacción

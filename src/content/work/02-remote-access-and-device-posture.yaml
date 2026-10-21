@@ -1,0 +1,24 @@
+order: 2
+title:
+  en: Remote access and device posture
+  es: Acceso remoto y postura de dispositivos
+client: CESPlus Cinema
+year: 2026
+area:
+  en: Security Operations
+  es: Operaciones de seguridad
+context:
+  en: Staff and equipment distributed across Latin America that need corporate resources without exposing them to the open internet.
+  es: Personal y equipos distribuidos por Latinoamérica que necesitan acceder a recursos corporativos sin exponerlos a internet.
+approach:
+  en: VPN architectures for site-to-site, client-to-site and zero-trust (ZTNA) access. MDM policies in Intune and Google Endpoint enforce disk encryption, patching and EDR; devices are imaged and security-baselined before they ship across borders.
+  es: Arquitecturas VPN para acceso sitio a sitio, cliente a sitio y de confianza cero (ZTNA). Las políticas MDM en Intune y Google Endpoint aplican cifrado de disco, parches y EDR; los equipos se preparan y se les aplica una línea base de seguridad antes de enviarse entre países.
+detailLabel:
+  en: Stack
+  es: Stack
+status:
+  en: In operation
+  es: En operación
+stack:
+  en: ZTNA · Site-to-site VPN · Intune · Google Endpoint · EDR
+  es: ZTNA · VPN sitio a sitio · Intune · Google Endpoint · EDR

@@ -1,0 +1,13 @@
+order: 8
+org: MarketMix
+start: 2020-08
+end: 2021-03
+location: Bogotá, Colombia
+role:
+  en: Trainee
+  es: Aprendiz
+bullets:
+  en:
+  - Administered Windows Server 2012 and AWS EC2 infrastructure, Nagios monitoring and Sophos security policies.
+  es:
+  - Administré infraestructura Windows Server 2012 y AWS EC2, el monitoreo con Nagios y las políticas de seguridad de Sophos.

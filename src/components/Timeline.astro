@@ -1,0 +1,37 @@
+---
+import type { CollectionEntry } from 'astro:content';
+interface Props { roles: CollectionEntry<'experience'>[]; caption: string }
+const { roles, caption } = Astro.props;
+
+const idx = (ym: string, y0: number) => {
+  const [y, m] = ym.split('-').map(Number);
+  return (y - y0) * 12 + (m - 1);
+};
+const now = new Date();
+const y0 = Math.min(...roles.map((r) => Number(r.data.start.slice(0, 4))));
+const lastYear = Math.max(now.getUTCFullYear(), ...roles.map((r) => Number((r.data.end ?? r.data.start).slice(0, 4))));
+const years = Array.from({ length: lastYear - y0 + 1 }, (_, i) => y0 + i);
+const total = years.length * 12;
+const nowIdx = (now.getUTCFullYear() - y0) * 12 + now.getUTCMonth() + 1; // end of the current month
+const pct = (n: number) => `${((n / total) * 100).toFixed(2)}%`;
+---
+<figure class="gfig rv" aria-hidden="true">
+  <div class="gr gr-years meta">
+    <span></span>
+    <div>{years.map((y, i) => <span style={`left:${pct(i * 12)}`}>{y}</span>)}</div>
+  </div>
+  {roles.map((r) => {
+    const s = idx(r.data.start, y0);
+    const e = r.data.end ? idx(r.data.end, y0) + 1 : nowIdx;
+    return (
+      <div class="gr meta">
+        <span class="dim">{r.data.org}</span>
+        <div class="trk" style={`--yr:${(100 / years.length).toFixed(4)}%`}>
+          <span class="bar" style={`left:${pct(s)};width:${pct(e - s)}`}></span>
+          {!r.data.end && <span class="now" style={`left:${pct(e)}`}></span>}
+        </div>
+      </div>
+    );
+  })}
+  <figcaption class="meta">{caption}</figcaption>
+</figure>

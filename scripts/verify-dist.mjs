@@ -15,6 +15,9 @@ for (const [file, lang] of [['dist/index.html', 'en'], ['dist/es/index.html', 'e
   }
   if (/href="tel:/i.test(html)) errors.push(`${file}: contains a tel: link (phone must not be published)`);
   if (/jfcastilloc\.95@gmail\.com/.test(html)) errors.push(`${file}: plain-text email found (must be obfuscated)`);
+  if (/mailto:/i.test(html)) errors.push(`${file}: static mailto: link (address must be assembled client-side)`);
+  if (!/<script[^>]+type="module"[^>]+src="\/_astro\//.test(html)) errors.push(`${file}: external site script missing`);
+  if (/#[0-9a-f]{3,8}\b/i.test(html.replace(/stroke="#fc523b"|fill="#6e6e6e"/g, ''))) errors.push(`${file}: stray hard-coded colour in markup`);
   if (/<style[\s>]/.test(html)) errors.push(`${file}: inline <style> would violate CSP style-src 'self'`);
   if (/<script(?![^>]*(application\/ld\+json|src=))[^>]*>/.test(html)) errors.push(`${file}: inline script would violate CSP`);
 }

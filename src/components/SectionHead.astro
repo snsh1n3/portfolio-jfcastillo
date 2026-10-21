@@ -1,0 +1,11 @@
+---
+interface Props { id: string; num: string; title: string; lead?: string }
+const { id, num, title, lead } = Astro.props;
+---
+<div class="pro rv">
+  <div class="pro-l">
+    <p class="sec-num meta">{num}</p>
+    <h2 id={id} class="sec-title">{title}</h2>
+  </div>
+  {lead && <div class="pro-r"><p class="lead">{lead}</p></div>}
+</div>

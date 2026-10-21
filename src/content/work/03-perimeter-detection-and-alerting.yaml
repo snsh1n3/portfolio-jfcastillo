@@ -1,0 +1,24 @@
+order: 3
+title:
+  en: Perimeter, detection and alerting
+  es: Perímetro, detección y alertas
+client: LinkUp Talents
+year: 2026
+area:
+  en: Security Operations
+  es: Operaciones de seguridad
+context:
+  en: Client server estates that needed segmentation at the edge, threat detection, and alerts that reliably reach a person.
+  es: Infraestructuras de servidores de clientes que necesitaban segmentación en el borde, detección de amenazas y alertas que lleguen de forma confiable a una persona.
+approach:
+  en: OPNsense firewalls with segmentation and perimeter rules; Wazuh for detection and Zabbix for performance. One Microsoft 365 SMTP configuration over STARTTLS shared by two Zabbix servers, Wazuh and Nextcloud, tested against a controlled recipient before production. Zenarmor in monitoring-only mode feeds daily and weekly Python reports for about twenty workstations.
+  es: Firewalls OPNsense con segmentación y reglas de perímetro; Wazuh para detección y Zabbix para rendimiento. Una única configuración SMTP de Microsoft 365 sobre STARTTLS compartida por dos servidores Zabbix, Wazuh y Nextcloud, probada con un destinatario controlado antes de pasar a producción. Zenarmor en modo solo monitoreo alimenta reportes diarios y semanales en Python para unas veinte estaciones de trabajo.
+detailLabel:
+  en: Stack
+  es: Stack
+status:
+  en: Monitoring in operation; centralized alerting and Zenarmor reports validated in testing
+  es: Monitoreo en operación; alertas centralizadas y reportes de Zenarmor validados en pruebas
+stack:
+  en: OPNsense · Zenarmor · Wazuh · Zabbix · Microsoft 365 SMTP · Python
+  es: OPNsense · Zenarmor · Wazuh · Zabbix · SMTP de Microsoft 365 · Python

@@ -1,0 +1,35 @@
+order: 2
+org: LinkUp Talents
+start: 2026-08
+location: Bogotá, Colombia
+role:
+  en: IT System Administrator
+  es: Administrador de sistemas de TI
+bullets:
+  en:
+  - 'Administer VMware vSphere and ESXi: VM deployment, resource allocation and infrastructure tuning for high availability.'
+  - Deploy virtualized Active Directory domain controllers, enforcing GPO and role-based access control.
+  - Configure OPNsense firewalls for network segmentation, secure routing and perimeter rules.
+  - Run Wazuh SIEM for threat detection alongside Zabbix for performance monitoring; build Azure REST API integrations for real-time telemetry.
+  - Lead deployment, baseline hardening and ongoing administration of enterprise software and virtual servers.
+  es:
+  - 'Administro VMware vSphere y ESXi: despliegue de máquinas virtuales, asignación de recursos y ajuste de la infraestructura para alta disponibilidad.'
+  - Despliego controladores de dominio de Active Directory virtualizados, aplicando GPO y control de acceso basado en roles.
+  - Configuro firewalls OPNsense para segmentación de red, enrutamiento seguro y reglas de perímetro.
+  - Opero Wazuh SIEM para detección de amenazas junto con Zabbix para monitoreo de rendimiento; construyo integraciones con las API REST de Azure para telemetría en tiempo real.
+  - Lidero el despliegue, el endurecimiento de la línea base y la administración continua de software empresarial y servidores virtuales.
+tools:
+  en:
+  - VMware vSphere/ESXi
+  - Active Directory
+  - OPNsense
+  - Wazuh
+  - Zabbix
+  - Azure REST APIs
+  es:
+  - VMware vSphere/ESXi
+  - Active Directory
+  - OPNsense
+  - Wazuh
+  - Zabbix
+  - API REST de Azure

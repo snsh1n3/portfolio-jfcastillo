@@ -1,0 +1,25 @@
+order: 1
+title:
+  en: One identity, four platforms
+  es: Una identidad, cuatro plataformas
+client: CESPlus Cinema
+year: 2026
+area:
+  en: Identity & Access
+  es: Identidad y acceso
+context:
+  en: A film-industry company running its operation across Google Workspace, Zoho, Microsoft 365 and Slack — each with its own sign-in and its own admin console.
+  es: Una empresa de la industria del cine que opera sobre Google Workspace, Zoho, Microsoft 365 y Slack, cada una con su propio inicio de sesión y su propia consola de administración.
+approach:
+  en: SSO and MFA across the stack, periodic access audits, and investigation of suspicious sign-ins and third-party OAuth grants, with account suspension when warranted. Domains, DNS and mail routing hardened with SPF, DKIM and DMARC.
+  es: SSO y MFA en todo el conjunto, auditorías periódicas de acceso e investigación de inicios de sesión sospechosos y de permisos OAuth de terceros, con suspensión de cuentas cuando corresponde. Dominios, DNS y enrutamiento de correo reforzados con SPF, DKIM y DMARC.
+detailLabel:
+  en: Stack
+  es: Stack
+status:
+  en: In operation
+  es: En operación
+open: true
+stack:
+  en: Google Workspace · Zoho · Microsoft 365 · Slack · Cloudflare DNS
+  es: Google Workspace · Zoho · Microsoft 365 · Slack · Cloudflare DNS

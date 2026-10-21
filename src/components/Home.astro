@@ -1,39 +1,242 @@
 ---
 import { getCollection, getEntry } from 'astro:content';
 import Base from '../layouts/Base.astro';
+import Arrow from './Arrow.astro';
+import Illustration from './Illustration.astro';
+import SectionHead from './SectionHead.astro';
+import Timeline from './Timeline.astro';
+import { monthNames, ui, type Locale } from '../i18n/ui';
 
 export interface Props {
-  locale: 'en' | 'es';
+  locale: Locale;
 }
-const { locale } = Astro.props;
+const { locale: l } = Astro.props;
+const t = ui[l];
 
 const profile = (await getEntry('profile', 'profile'))!.data;
-const roles = (await getCollection('experience')).sort((a, b) => b.data.start.localeCompare(a.data.start));
+const byOrder = <T extends { data: { order: number } }>(a: T, b: T) => a.data.order - b.data.order;
+const roles = (await getCollection('experience')).sort(byOrder);
+const works = (await getCollection('work')).sort(byOrder);
+const skills = (await getCollection('expertise')).sort(byOrder);
+const education = (await getCollection('education')).sort(byOrder);
 
-// Email is emitted as numeric character references so it is not a plain-text string in the HTML.
-const encode = (s: string) => [...s].map((c) => `&#${c.codePointAt(0)};`).join('');
-const emailEncoded = encode(profile.email);
+const fmt = (ym: string) => {
+  const [y, m] = ym.split('-');
+  return `${monthNames[l][Number(m) - 1]} ${y}`;
+};
 
+// The address never appears as plain text in the HTML: fragments are reversed and joined by site.ts.
+const [mailLocal, mailDomain] = profile.email.split('@');
+const rev = (s: string) => [...s].reverse().join('');
+const fallback =
+  l === 'es'
+    ? `${mailLocal} [arroba] ${mailDomain.replace('.', ' [punto] ')}`
+    : `${mailLocal} [at] ${mailDomain.replace('.', ' [dot] ')}`;
+const mailAttrs = { 'data-mail-u': rev(mailLocal), 'data-mail-d': rev(mailDomain) };
+
+const home = l === 'en' ? '/' : '/es/';
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: profile.name,
-  jobTitle: profile.jobTitle[locale],
-  url: new URL(locale === 'en' ? '/' : '/es/', Astro.site).href,
+  jobTitle: profile.jobTitle[l],
+  description: profile.metaDescription[l],
+  url: new URL(home, Astro.site).href,
   sameAs: [profile.linkedin],
   knowsAbout: profile.knowsAbout,
   address: { '@type': 'PostalAddress', addressLocality: profile.location.city, addressCountry: profile.location.countryCode },
 };
+
+const docHrefs = [profile.cv, profile.linkedin, '#contact'];
+const navIds = ['profile', 'experience', 'work', 'contact'];
 ---
 
-<Base locale={locale} title={`${profile.name} — ${profile.jobTitle[locale]}`} description={profile.metaDescription[locale]} path="/" jsonLd={jsonLd}>
-  <main id="main" style="padding: var(--gutter);">
-    <h1 style="font-size: var(--text-display); line-height: var(--leading-display); margin: 0 0 var(--gutter);">{profile.name}</h1>
-    <p class="meta">{profile.jobTitle[locale]} · {profile.location.city}, {profile.location.countryCode}</p>
-    <p>{profile.intro[locale]}</p>
-    <ul class="meta">
-      {roles.map((r) => <li>{r.data.org} — {r.data.role[locale]} ({r.data.start}–{r.data.end ?? (locale === 'en' ? 'present' : 'actual')})</li>)}
-    </ul>
-    <p class="meta"><a href={profile.linkedin} rel="me noopener">LinkedIn</a> · <a href={profile.cv}>CV (PDF)</a> · <span set:html={emailEncoded} /></p>
+<Base locale={l} title={`${profile.name} — ${profile.jobTitle[l]}`} description={profile.metaDescription[l]} path="/" jsonLd={jsonLd}>
+  <a class="skip meta" href="#main">{t.skip}</a>
+
+  <header class="cells c4 hd meta">
+    <div>{profile.name}</div>
+    <div>{profile.headerRole[l]}</div>
+    <div>{profile.location.label}</div>
+    <div class="hd-last">
+      <span>{t.curriculum}</span>
+      <span>
+        {l === 'en' ? (
+          <><span aria-current="true" style="text-decoration: underline; text-underline-offset: 4px">EN</span> / <a class="ul" href="/es/" lang="es" hreflang="es" aria-label={t.switchLabel}>ES</a></>
+        ) : (
+          <><a class="ul" href="/" lang="en" hreflang="en" aria-label={t.switchLabel}>EN</a> / <span aria-current="true" style="text-decoration: underline; text-underline-offset: 4px">ES</span></>
+        )}
+      </span>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="h-name">
+      <div class="hero-copy">
+        <h1 id="h-name" class="name">{profile.nameLines[0]}<br />{profile.nameLines[1]}</h1>
+        <p class="kicker meta">{profile.tagline[l]}</p>
+        <p class="lede">{profile.intro[l]}</p>
+      </div>
+      <div class="ill">
+        <Illustration labels={t.ill} />
+        <p class="ill-cap meta">{t.figIll}</p>
+      </div>
+    </section>
+
+    <nav class="cells c3 band docs" aria-label={t.navDocs}>
+      {t.docs.map((label, i) => (
+        <a href={docHrefs[i]} {...(i === 2 ? mailAttrs : {})} {...(i < 2 ? { rel: 'noopener' } : {})}>
+          {label} <Arrow />
+        </a>
+      ))}
+    </nav>
+
+    <section id="profile" class="band sec" aria-labelledby="h-profile">
+      <SectionHead id="h-profile" num="01" title={t.sections.profile} />
+      <div class="pro rv">
+        <div class="pro-r about">
+          {profile.about[l].map((p) => <p>{p}</p>)}
+        </div>
+      </div>
+      <div class="cells c4 band stats rv">
+        {profile.stats.map((s) => (
+          <div class="stat">
+            <p class="stat-n lnum">{s.value[l]}</p>
+            <p class="stat-l meta">{s.label[l]}<br /><span class="dim">{s.source[l]}</span></p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section id="experience" class="band sec" aria-labelledby="h-exp">
+      <SectionHead id="h-exp" num="02" title={t.sections.experience} lead={t.intros.experience} />
+      <Timeline roles={roles} caption={t.figTime} />
+      <ol class="list">
+        {roles.map((r) => (
+          <li>
+            <details open={r.data.open}>
+              <summary class="erow">
+                <span class="e-p meta">{fmt(r.data.start)} — {r.data.end ? fmt(r.data.end) : t.present}</span>
+                <span class="e-c co">{r.data.org}</span>
+                <span class="e-r meta">{r.data.role[l]}</span>
+                <span class="e-l meta dim">{r.data.location}</span>
+                <span class="e-t meta" aria-hidden="true"><span class="tg-c">+</span><span class="tg-o">−</span></span>
+              </summary>
+              <div class="edet edet-t">
+                <ul class="eb">{r.data.bullets[l].map((b) => <li>{b}</li>)}</ul>
+                {r.data.results && <p class="xtra meta"><span class="dim">{t.labels.results}</span>{r.data.results[l]}</p>}
+                {r.data.tools && <p class="xtra meta"><span class="dim">{t.labels.tools}</span>{r.data.tools[l].join(' · ')}</p>}
+              </div>
+            </details>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section id="expertise" class="sec" aria-labelledby="h-skills">
+      <SectionHead id="h-skills" num="03" title={t.sections.expertise} lead={t.intros.expertise} />
+      <div class="cells c6 skills rv">
+        {skills.map((s) => (
+          <div class="skill">
+            <h3>{s.data.title[l]}</h3>
+            <ul class="meta">{s.data.items[l].map((i) => <li>{i}</li>)}</ul>
+            <p class="skill-o meta">{s.data.orgs}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section id="work" class="sec" aria-labelledby="h-work">
+      <SectionHead id="h-work" num="04" title={t.sections.work} lead={t.intros.work} />
+      <ol class="list">
+        {works.map((w, i) => (
+          <li>
+            <details open={w.data.open}>
+              <summary class="erow">
+                <span class="e-p meta">{l === 'en' ? 'No.' : 'N.º'} {String(i + 1).padStart(2, '0')}</span>
+                <span class="e-c co">{w.data.title[l]}</span>
+                <span class="e-r meta">{w.data.client} · {w.data.year}</span>
+                <span class="e-l meta dim">{w.data.area[l]}</span>
+                <span class="e-t meta" aria-hidden="true"><span class="tg-c">+</span><span class="tg-o">−</span></span>
+              </summary>
+              <div class="edet">
+                <dl class="wdl edet-t">
+                  <div><dt class="meta">{t.labels.context}</dt><dd>{w.data.context[l]}</dd></div>
+                  <div><dt class="meta">{t.labels.approach}</dt><dd>{w.data.approach[l]}</dd></div>
+                  <div><dt class="meta">{w.data.detailLabel[l]}</dt><dd class="meta">{w.data.stack[l]}</dd></div>
+                  <div><dt class="meta">{t.labels.status}</dt><dd class="meta">{w.data.status[l]}</dd></div>
+                </dl>
+              </div>
+            </details>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section id="education" class="sec" aria-labelledby="h-edu">
+      <SectionHead id="h-edu" num="05" title={t.sections.education} />
+      <ul class="list">
+        {education.map((e) => (
+          <li class="erow">
+            <span class="e-p meta">{e.data.period[l]}</span>
+            <span class="e-c edu-t">{e.data.title[l]}</span>
+            <span class="e-r meta">{e.data.institution}</span>
+            <span class="e-l meta dim">{e.data.kind[l]}</span>
+            <span class="e-t" aria-hidden="true"></span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section id="contact" class="sec" aria-labelledby="h-contact">
+      <div class="pro rv">
+        <div class="pro-l">
+          <p class="sec-num meta">06</p>
+          <h2 id="h-contact" class="sec-title">{t.sections.contact}</h2>
+        </div>
+        <div class="pro-r"><p class="contact-h" set:html={t.contactHeadline} /></div>
+      </div>
+      <ul class="clist">
+        <li>
+          <a class="erow" href="#contact" {...mailAttrs}>
+            <span class="e-p meta">{t.contactRows[0][0]}</span>
+            <span class="e-c co" data-mail-text>{fallback}</span>
+            <span class="e-r meta">{t.contactRows[0][2]}</span>
+            <span class="e-l"></span>
+            <span class="e-t"><Arrow /></span>
+          </a>
+        </li>
+        <li>
+          <a class="erow" href={profile.linkedin} rel="me noopener">
+            <span class="e-p meta">{t.contactRows[1][0]}</span>
+            <span class="e-c co">{t.contactRows[1][1]}</span>
+            <span class="e-r meta">{t.contactRows[1][2]}</span>
+            <span class="e-l"></span>
+            <span class="e-t"><Arrow /></span>
+          </a>
+        </li>
+        <li>
+          <a class="erow" href={profile.cv}>
+            <span class="e-p meta">{t.contactRows[2][0]}</span>
+            <span class="e-c co">{t.contactRows[2][1]}</span>
+            <span class="e-r meta">{t.contactRows[2][2]}</span>
+            <span class="e-l"></span>
+            <span class="e-t"><Arrow /></span>
+          </a>
+        </li>
+      </ul>
+    </section>
   </main>
+
+  <footer class="cells c3 meta ft">
+    {t.footer.map((f) => <p>{f}</p>)}
+  </footer>
+
+  <nav class="bn" aria-label={t.navPrimary} data-print="hide">
+    <ul>
+      {navIds.map((id, i) => (
+        <li><a href={`#${id}`} aria-current="false">{t.nav[i]} <Arrow dir="down" /></a></li>
+      ))}
+    </ul>
+  </nav>
 </Base>

@@ -15,6 +15,10 @@ export default defineConfig({
     // Keep CSS in external files so the CSP can stay `style-src 'self'`.
     inlineStylesheets: 'never',
   },
+  vite: {
+    // Never inline scripts or assets: the CSP is `script-src 'self'`.
+    build: { assetsInlineLimit: 0 },
+  },
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'es'],
