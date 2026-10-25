@@ -23,8 +23,16 @@ const site = Astro.site!.origin;
 const urlFor = (l: 'en' | 'es') => new URL(l === 'en' ? path : `/es${path}`, site).href;
 const canonical = urlFor(locale);
 const ogUrl = ogImage ? new URL(ogImage, site).href : undefined;
-// Escape "<" so a string can never close the script tag.
-const jsonLdText = jsonLd ? JSON.stringify(jsonLd).replace(/</g, '\\u003c') : undefined;
+// Escape the characters that could close the script tag or open an HTML
+// comment, plus Unicode line separators. The output stays valid JSON.
+const jsonLdText = jsonLd
+  ? JSON.stringify(jsonLd)
+      .replace(/</g, '\\u003c')
+      .replace(/>/g, '\\u003e')
+      .replace(/&/g, '\\u0026')
+      .replace(/\u2028/g, '\\u2028')
+      .replace(/\u2029/g, '\\u2029')
+  : undefined;
 ---
 
 <!doctype html>

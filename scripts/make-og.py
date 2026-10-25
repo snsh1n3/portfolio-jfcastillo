@@ -4,7 +4,7 @@
 Not part of the build: run it by hand when the name, role or illustration changes.
 Needs Python with `playwright` (Chromium) and `pyyaml`.
 """
-import pathlib, re, tempfile, yaml
+import html, pathlib, re, tempfile, yaml
 from playwright.sync_api import sync_playwright
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -16,8 +16,12 @@ fonts = {n: (ROOT / f'public/fonts/{n}.woff2').resolve().as_uri() for n in
          ('eb-garamond-latin-400-normal', 'eb-garamond-latin-400-italic', 'inter-latin-400-normal')}
 domain = 'jfcastillo.chusquisimas.com'
 
+def esc(value):
+    # The YAML is repo-owned, but escape it anyway so markup characters render as text.
+    return html.escape(str(value), quote=True)
+
 def page(loc):
-    l1, l2 = profile['nameLines']
+    l1, l2 = (esc(x) for x in profile['nameLines'])
     return f"""<!doctype html><meta charset="utf-8"><style>
 @font-face{{font-family:G;src:url({fonts['eb-garamond-latin-400-normal']})}}
 @font-face{{font-family:I;src:url({fonts['inter-latin-400-normal']})}}
@@ -31,20 +35,24 @@ p{{position:absolute;left:30px;width:640px;font-size:28px;line-height:1.2;letter
 .k{{top:372px;font:400 17px I;letter-spacing:.017em}} .l{{top:410px}}
 svg{{position:absolute;right:20px;top:110px}}
 </style>
-<div class="top"><div>{profile['name']}</div><div>{profile['headerRole'][loc]}</div></div>
+<div class="top"><div>{esc(profile['name'])}</div><div>{esc(profile['headerRole'][loc])}</div></div>
 <h1>{l1}<br>{l2}</h1>
-<p class="k">{profile['tagline'][loc]}</p>
+<p class="k">{esc(profile['tagline'][loc])}</p>
 <svg-holder>{svg}</svg-holder>
 <div class="bot"><div>{domain}</div><div>{'English' if loc == 'en' else 'Español'}</div></div>"""
 
 out = ROOT / 'public/og'; out.mkdir(exist_ok=True)
-with sync_playwright() as p:
-    b = p.chromium.launch(); pg = b.new_page(viewport={'width': 1200, 'height': 630})
-    for loc in ('en', 'es'):
-        with tempfile.NamedTemporaryFile('w', suffix='.html', dir=ROOT, delete=False, encoding='utf-8') as f:
-            f.write(page(loc))
-        pg.goto(pathlib.Path(f.name).as_uri()); pg.evaluate('document.fonts.ready'); pg.wait_for_timeout(300)
-        pathlib.Path(f.name).unlink()
-        pg.screenshot(path=str(out / f'og-{loc}.png'))
-    b.close()
+# Temporary pages live in the system temp dir (never in the repo) and are
+# removed even if Chromium fails mid-render.
+with tempfile.TemporaryDirectory(prefix='og-') as tmp, sync_playwright() as p:
+    b = p.chromium.launch()
+    try:
+        pg = b.new_page(viewport={'width': 1200, 'height': 630})
+        for loc in ('en', 'es'):
+            src = pathlib.Path(tmp) / f'og-{loc}.html'
+            src.write_text(page(loc), encoding='utf-8')
+            pg.goto(src.as_uri()); pg.evaluate('document.fonts.ready'); pg.wait_for_timeout(300)
+            pg.screenshot(path=str(out / f'og-{loc}.png'))
+    finally:
+        b.close()
 print('ok')

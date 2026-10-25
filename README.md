@@ -8,7 +8,7 @@ Personal CV / portfolio of Juan Felipe Castillo Collazos. Static site (Astro) se
 | --- | --- |
 | `npm run dev` | Astro dev server |
 | `npm run check` | Type and content-schema check |
-| `npm run build` | `astro check` + build + `scripts/verify-dist.mjs` (hreflang parity, no `tel:`, no plain-text email, CSP-safe markup) |
+| `npm run build` | `astro check` + build + `scripts/verify-dist.mjs` (hreflang parity on both homes; on every HTML page: no `tel:`, no plain-text email, CSP-safe markup) |
 | `npm run preview` | Serve `dist/` locally with Wrangler (applies `_headers`) |
 | `npm run deploy` | Build and `wrangler deploy` (run by the owner, never from CI by default) |
 

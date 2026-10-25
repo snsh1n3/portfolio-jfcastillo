@@ -32,7 +32,8 @@ const profile = defineCollection({
     email: z.email(),
     linkedin: z.url(),
     /** Path under /public of the downloadable CV. */
-    cv: z.string().startsWith('/'),
+    // Same-origin path only: rejects protocol-relative values like //host/x.pdf.
+    cv: z.string().regex(/^\/(?!\/)/),
     knowsAbout: z.array(z.string()).default([]),
   }),
 });
